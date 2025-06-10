@@ -51,18 +51,18 @@ workflow{
     BIGWIG_SUMMARY(bw_concat_ch)
     PLOT_CORRELATION(BIGWIG_SUMMARY.out.matrix)
 
-SAMTOOLS_SORT.out.sorted
-     | map{ it -> tuple(it[0].split("_")[1], it[1]) }
-     | groupTuple(sort: true)
-     | map{ it -> tuple(it[0], it[1].sort{ a, b -> a.name.compareTo(b.name) }) }
-     | set{ peak_ch }
+    SAMTOOLS_SORT.out.sorted
+        | map{ it -> tuple(it[0].split("_")[1], it[1]) }
+        | groupTuple(sort: true)
+        | map{ it -> tuple(it[0], it[1].sort{ a, b -> a.name.compareTo(b.name) }) }
+        | set{ peak_ch }
 
-PEAK_CALL(peak_ch)
+    PEAK_CALL(peak_ch)
 
-SAMTOOLS_SORT.out.sorted
-     | map{ it -> tuple(it[0].split("_")[0], it[1]) }
-     | groupTuple(sort: true)
-     | set{ intersect_ch }
+    SAMTOOLS_SORT.out.sorted
+        | map{ it -> tuple(it[0].split("_")[0], it[1]) }
+        | groupTuple(sort: true)
+        | set{ intersect_ch }
 
     peak_ch = Channel.fromPath(params.peaks).collect()
 
