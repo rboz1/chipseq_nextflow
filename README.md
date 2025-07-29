@@ -94,7 +94,9 @@ A comprehensive ChIP-seq peak calling and downstream analysis workflow implement
    ** please update your cluster in the nextflow.config if it isn't sge **
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Results
+---
+
+## Results
 
 - **Enrichment analysis**:  
   Protein-coding genes associated with high-scoring peaks (>1000) were submitted to EnrichR for functional enrichment. Analysis focused on:  
@@ -115,9 +117,10 @@ A comprehensive ChIP-seq peak calling and downstream analysis workflow implement
   - The data were visualized as a stacked bar plot illustrating the percentage of genes bound or not bound by RUNX1 near their TSS in these gene sets.
     
   <img width="824" height="602" alt="Screenshot 2025-07-29 at 12 25 07 PM" src="https://github.com/user-attachments/assets/d8044c2e-2d4d-45d3-873d-965a6153c5c1" />
+  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 ---
 
-**Next steps for downstream analysis and validation include:**
+### Next steps:
 
 - Integrating ChIP-seq and RNA-seq data specifically for Notch pathway genes to better understand the regulatory impact of RUNX1 binding.  
 - Expanding analysis to assess co-binding patterns between RUNX1 and other transcription factors to uncover potential regulatory complexes.  
